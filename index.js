@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-app.post('/test', (req, res) => {
+app.get('/test', (req, res) => {
   res.send('test response from express backend')
 })
 
@@ -15,4 +15,4 @@ app.post('/echo', (req, res) => {
   res.send(req.body)
 })
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.listen(3001, () => console.log('Example app listening on port 3000!'))
