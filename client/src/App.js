@@ -1,31 +1,81 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Card from "./components/Card";
+import SourcePicker from "./components/SourcePicker";
+import "./App.css";
+
+const data = [
+  {
+    title: "MIT Timely Confessions",
+    date: "today",
+    text: "This is a confession.",
+    reactions: "126",
+    number: "4241",
+    id: "UID1"
+  },
+  {
+    title: "MIT Confessions",
+    date: "yesterday",
+    text: "This is another confession",
+    reactions: "129",
+    number: "4242",
+    id: "UID2"
+  }
+];
+
+const ListItems = data.map(d => (
+  <Card
+    key={d.id}
+    title={d.title}
+    text={d.text}
+    date={d.date}
+    reactions={d.reactions}
+    number={d.number}
+  />
+));
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount() {
-    fetch('/test')
-    .then(res => res.text())
-    .then(text => console.log(text))
+    fetch("/test")
+      .then(res => res.text())
+      .then(text => console.log(text));
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Header>Confessions History Explorer</Header>
+        <Body>
+          <Navigation>
+            This is where the navigation is
+            <SourcePicker />
+          </Navigation>
+          <div>{ListItems}</div>
+        </Body>
       </div>
     );
   }
 }
 
 export default App;
+
+const Navigation = styled.div`
+  border-style: dashed;
+  width: 300px;
+`;
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const Header = styled.div`
+  justify-content: center;
+  padding: 25px;
+  background-color: black;
+  color: white;
+`;
