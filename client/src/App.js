@@ -6,7 +6,7 @@ import "./App.css";
 
 const data = [
   {
-    title: "MIT Timely Confessions",
+    source: "MIT Timely Confessions",
     date: "today",
     text: "This is a confession.",
     reactions: "126",
@@ -14,7 +14,7 @@ const data = [
     id: "UID1"
   },
   {
-    title: "MIT Confessions",
+    source: "MIT Confessions",
     date: "yesterday",
     text: "This is another confession",
     reactions: "129",
@@ -26,7 +26,7 @@ const data = [
 const ListItems = data.map(d => (
   <Card
     key={d.id}
-    title={d.title}
+    source={d.source}
     text={d.text}
     date={d.date}
     reactions={d.reactions}

@@ -15,7 +15,7 @@ export default class Card extends Component {
         }}
       >
         <div style={{ textAlign: "left", fontSize: "1.2em" }}>
-          {this.props.title} #{this.props.number}
+          {this.props.source} #{this.props.number}
         </div>
         <div
           style={{
