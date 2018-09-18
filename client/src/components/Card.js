@@ -6,6 +6,10 @@ export default class Card extends Component {
   }
 
   render() {
+    const textElements = this.props.text.map((t, i) => (
+      <p key={i}>{t}</p>
+    ))
+
     return (
       <div
         style={{
@@ -15,7 +19,7 @@ export default class Card extends Component {
         }}
       >
         <div style={{ textAlign: "left", fontSize: "1.2em" }}>
-          {this.props.source} #{this.props.number}
+          {this.props.source} {this.props.number}
         </div>
         <div
           style={{
@@ -32,7 +36,7 @@ export default class Card extends Component {
           </div>
         </div>
         <div style={{ textAlign: "left", fontSize: "1.2em" }}>
-          {this.props.text}
+          {textElements}
         </div>
       </div>
     );
